@@ -40,10 +40,65 @@
 .HeaderApp {
   border: 2px solid rgb(212, 51, 51); 
   margin: 10px; 
-  height: 50px
+  height: 50px;
 }
 
 .Buttons {
   background-color: #ffffff;
-  border: 2px solid #6f0997
+  border: 2px solid #6f0997;
+  height: 30px;
+  width: 140px;
+}
+
+.CourseCardMain {
+    background-color: #ffffff;
+    border: 2px solid #2bd61b;
+    display: flex;
+    margin: 10px;
+    height: 150px;
+}
+
+.CourseCardTitleDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    padding: 15px;
+}
+
+.CourseCardOther {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30%;
+    padding: 10px;
+}
+
+.CourseCardName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+
+.CourseCardTitle {
+    padding: 0 0 10px 0;
+    font-size: 24px;
+}
+
+InputMain {
+    display: flex;   
+    width: 150px;
+}
+
+InputSearch {
+    border: 2px solid #d6c91b;
+}
+
+searchBarMain {
+    display: flex;
+}
+
+CoursesMain {
+    display: flex;
 }
