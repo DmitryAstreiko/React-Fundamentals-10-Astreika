@@ -4,9 +4,12 @@ import '../../../../App.css';
 
 function SearchBar() {
     return (
-        <div className="searchBarMain">
-            <Input placeholderText="Enter course name..."/>
-            <Button buttonText="Search"/>
+        <div className="SearchBarMain">
+          
+                <Input placeholderText="Enter course name..."/>
+          
+                <Button buttonText="Search" />
+          
         </div>
     )
 }

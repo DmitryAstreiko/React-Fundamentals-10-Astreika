@@ -6,10 +6,12 @@ import '../../App.css';
 
 function Header() {
     return (
-        <div className="HeaderApp">
+        <div className="HeaderMain">
             <Logo />
-            <label>Dzmitry</label>
-            <Button buttonText="Logout"/>
+            <div>
+                <label style={{ margin: "0 50px 0 0" }} ><b>Dzmitry</b></label>
+                <Button buttonText="Logout" />
+            </div>
         </div>
     )
 } 

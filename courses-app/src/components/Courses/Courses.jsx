@@ -7,11 +7,16 @@ import Button from "../../common/Button/Button";
 function Courses(props) {
     return (
         <div className="CoursesMain">
-            <div>
+            <div className="CoursesSearchAddCourse">
                 <SearchBar />
-                <Button buttonText="Add new course" />
+                <div style={{ padding: "0 10px 0 0" }}>
+                    <Button buttonText="Add new course" />
+                </div>
             </div>
-            <CourseCard />            
+            {props.items((item, index) =>
+                <CourseCard id={item.id} title={item.title} description={item.description} authors={item.authors} duration={item.duration} created={item.created}/>
+                )}
+                        
         </div>
         )
 }
