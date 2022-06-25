@@ -52,6 +52,7 @@
   border: 2px solid #6f0997;
   height: 30px;
   width: 140px;
+  margin: 10px;
 }
 
 .CourseCardMain {
@@ -93,7 +94,7 @@
 .InputMain {
     display: flex;   
     width: 50%;
-    margin: 0 15px 0 0;
+    margin: 0 15px 0 10px;
 }
 
 .InputSearch {
@@ -125,3 +126,71 @@
     width: 100%;
 }
 
+.AuthorItemMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.CreateCourseMain {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #2e1bd6;
+    margin: 10px;
+}
+.InputCreateCourseName {
+    height: 24px;
+    border: 2px solid #d6c91b;
+    width: 25%;
+    margin: 10px;
+}
+
+.CreateCourseLabels {
+    margin: 10px 0 0 10px;
+    font-size: 14px;
+}
+
+.CreateCourseTextArea {
+    margin: 0 10px 10px 10px;
+    border: 2px solid #f3f723;
+    height: 100px;    
+}
+
+.AddAuthorMain {
+    display: flex;
+    flex-direction: column;
+}
+
+.DurationMain {
+    display: flex;
+    flex-direction: column;
+}
+
+.CreateCourseLabelsParagraph {
+    font-size: 16px;
+    text-align: center;    
+}
+
+.AuthorsMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 300px;
+    border: 2px solid #000000;
+    margin: 10px;
+    padding: 40px 0 0 0;
+}
+
+.AuthorsAddAndDuration {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+}
+
+.AuthorsListAndDelete {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+}
