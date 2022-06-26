@@ -1,21 +1,32 @@
 import './App.css';
+import React, { useState } from "react";
 import Header from './components/Header/Header';
 import Courses from './components/Courses/Courses';
 import CreateCourse from './components/CreateCourse/CreateCourse';
-import { mockedAuthorsList } from './constants';
+import { mockedAuthorsList, mockedCoursesList } from './constants';
 
-function App(props) {  
-    //const [isShowAddCourse, setIsShowAddCourse] = useState(false);
+function App() {  
+    const [isShowCreateCourse, setIsShowCreateCourse] = useState(false);
+
     return (
         <div>
-            <Header />
-            <Courses items={props.items} />
-            <CreateCourse itemAuthors={getAuthors()}/>         
+            <Header />            
+            {isShowCreateCourse ? (
+                <CreateCourse itemAuthors={getAuthors()} />
+            ) : (
+
+                <Courses items={getItems()} />
+            )
+            }
         </div>
     );
 
     function getAuthors() {
     return mockedAuthorsList;
+    }
+
+    function getItems() {
+        return mockedCoursesList;
     }
 }
 
