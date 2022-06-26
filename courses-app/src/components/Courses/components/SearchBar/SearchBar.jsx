@@ -5,11 +5,10 @@ import '../../../../App.css';
 function SearchBar() {
     return (
         <div className="SearchBarMain">
-          
-                <Input placeholderText="Enter course name..."/>
-          
-                <Button buttonText="Search" />
-          
+            <div style={{width: "40%"} }> 
+                <Input placeholderText="Enter course name..." />
+            </div>          
+            <Button buttonText="Search" />          
         </div>
     )
 }

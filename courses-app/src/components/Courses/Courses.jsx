@@ -5,11 +5,12 @@ import CourseCard from './components/CourseCard/CourseCard';
 import Button from "../../common/Button/Button";
 
 function Courses(props) {
+    
     return (
         <div className="CoursesMain">
             <div className="CoursesSearchAddCourse">
                 <SearchBar />
-                <div style={{ padding: "0 10px 0 0" }}>
+                <div>
                     <Button buttonText="Add new course" />
                 </div>
             </div>
@@ -18,7 +19,7 @@ function Courses(props) {
                 )}
                         
         </div>
-        )
+    )
 }
 
 export default Courses;

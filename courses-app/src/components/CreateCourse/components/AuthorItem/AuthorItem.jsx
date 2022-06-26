@@ -5,7 +5,7 @@ import Button from "../../../../common/Button/Button";
 function AuthorItem(props) {
     return (
         <div className="AuthorItemMain">
-            <label>1213</label>
+            <label>{props.authorName}</label>
             <Button buttonText="Add author" />
         </div>
     )
