@@ -18,7 +18,9 @@ function Input(props) {
 	);
 
 	function onHandleClick(symbols) {
+		console.log('symbols >> ' + symbols);
 		setInputValue(symbols);
+		props.onChange(symbols);
 	}
 }
 

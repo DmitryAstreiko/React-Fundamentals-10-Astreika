@@ -7,8 +7,8 @@ import { mockedAuthorsList, mockedCoursesList } from './constants';
 
 function App() {
 	const [isShowCreateCourse, setIsShowCreateCourse] = useState(false);
-	const [Authors, setAuthors] = useState(getAuthors());
-	const [CourcesItem, setCourses] = useState(getCources());
+	const [authors, setAuthors] = useState(getAuthors());
+	const [coursesItem, setCoursesItem] = useState(getCources());
 	return (
 		<div>
 			<Header />
@@ -19,13 +19,40 @@ function App() {
 				/>
 			) : (
 				<Courses
-					items={CourcesItem}
-					itemAuthors={Authors}
+					items={coursesItem}
+					itemAuthors={authors}
 					changeIsShowCreateCourse={changeIsShowCreateCourse}
+					onSearchCourses={onSearchCourses}
 				/>
 			)}
 		</div>
 	);
+
+	function onSearchCourses(text) {
+		console.log('onSearchCourses + ' + text);
+		var resArray = [];
+		const mockedCourses = getCources();
+
+		if (mockedCourses) {
+			mockedCourses?.forEach((element) => {
+				var foundTitle = element.title.toLowerCase().indexOf(text, 0);
+				var foundId = element.id.toLowerCase().indexOf(text, 0);
+				if (foundTitle > 0 || foundId > 0) {
+					resArray.push(element);
+				}
+			});
+		}
+
+		console.log(resArray);
+		console.log(mockedCourses);
+		if (resArray.length > 0) {
+			console.log('2');
+			setCoursesItem(resArray);
+		} else {
+			console.log('3');
+			setCoursesItem(mockedCourses);
+		}
+	}
 
 	function changeIsShowCreateCourse() {
 		setIsShowCreateCourse(!isShowCreateCourse);

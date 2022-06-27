@@ -8,11 +8,21 @@ function SearchBar(props) {
 	return (
 		<div className='SearchBarMain'>
 			<div style={{ width: '40%' }}>
-				<Input placeholderText='Enter course name...' />
+				<Input placeholderText='Enter course name...' onChange={onInputText} />
 			</div>
-			<Button buttonText='Search' />
+			<Button buttonText='Search' onButtonPress={onSearch} />
 		</div>
 	);
+
+	function onInputText(text) {
+		console.log('onInputText -- ' + text);
+		setInputText(text);
+	}
+
+	function onSearch() {
+		console.log('onSearch');
+		props.onSearchCourse(inputText);
+	}
 }
 
 export default SearchBar;

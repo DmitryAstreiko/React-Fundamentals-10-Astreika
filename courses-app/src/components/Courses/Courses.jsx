@@ -7,13 +7,13 @@ import GetCourseDuration from '../../helpers/getCourseDuration';
 import FormatCreationDate from '../../helpers/formatCreationDate';
 
 function Courses(props) {
-	const [itemCources, setItemCources] = useState(props.items);
+	const [itemCourses, setItemCourses] = useState(props.items);
+	console.log('Courses = ' + itemCourses);
 	const [itemAuthors] = useState(props.itemAuthors);
-	const [forSearch, setForSearch] = useState(null);
 	return (
 		<div className='CoursesMain'>
 			<div className='CoursesSearchAddCourse'>
-				<SearchBar forSearch={forSearch} />
+				<SearchBar onSearchCourse={onSearchCourse} />
 				<div>
 					<Button
 						buttonText='Add new course'
@@ -21,7 +21,7 @@ function Courses(props) {
 					/>
 				</div>
 			</div>
-			{itemCources.map((item, index) => (
+			{itemCourses.map((item, index) => (
 				<CourseCard
 					id={item.id}
 					title={item.title}
@@ -38,8 +38,9 @@ function Courses(props) {
 		props.changeIsShowCreateCourse();
 	}
 
-	function getInputSymbol(symbols) {
-		setItemCources(props.items);
+	function onSearchCourse(text) {
+		console.log('onSearchCourse = ' + text);
+		props.onSearchCourses(text);
 	}
 
 	function getAuthorsByIds(arrayAuthors) {
