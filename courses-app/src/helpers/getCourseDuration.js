@@ -1,17 +1,17 @@
 function GetCourseDuration(string) {
-    var inputNum = parseInt(string);
+	const inputNum = parseInt(string);
 
-    var hours = Math.floor(inputNum / 60);
+	const hours = Math.floor(inputNum / 60);
 
-    var minutes = inputNum - (hours * 60);
+	const minutes = inputNum - hours * 60;
 
-    var aboutHour = (hours < 11) ? '0' + hours : hours;
+	const aboutHour = hours < 11 ? `0${hours}` : hours;
 
-    var aboutMinutes = (minutes < 11) ? '0' + minutes : minutes;
+	const aboutMinutes = minutes < 11 ? `0${minutes}` : minutes;
 
-    var aboutEndHour = (hours < 2) ? ' hour' : ' hours';
+	const aboutEndHour = hours < 2 ? ' hour' : ' hours';
 
-    return aboutHour + ':' + aboutMinutes + aboutEndHour;
+	return `${aboutHour}:${aboutMinutes}${aboutEndHour}`;
 }
 
 export default GetCourseDuration;
