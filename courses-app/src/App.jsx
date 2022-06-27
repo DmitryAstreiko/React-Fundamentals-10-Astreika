@@ -7,14 +7,14 @@ import { mockedAuthorsList, mockedCoursesList } from './constants';
 
 function App() {
 	const [isShowCreateCourse, setIsShowCreateCourse] = useState(false);
-	const [authors, setAuthors] = useState(getAuthors());
+	const [authors] = useState(getAuthors());
 	const [coursesItem, setCoursesItem] = useState(getCources());
 	return (
 		<div>
 			<Header />
 			{isShowCreateCourse ? (
 				<CreateCourse
-					itemAuthors={getAuthors()}
+					itemAuthors={authors}
 					changeIsShowCreateCourse={changeIsShowCreateCourse}
 				/>
 			) : (

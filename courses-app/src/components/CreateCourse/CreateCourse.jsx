@@ -5,6 +5,7 @@ import Authors from './components/Authors/Authors';
 import Input from '../../common/Input/Inpit';
 
 function CreateCourse(props) {
+	console.log('CreateCourse = ' + props.itemAuthors);
 	return (
 		<div className='CreateCourseMain'>
 			<label className='CreateCourseLabels'>Title</label>

@@ -140,7 +140,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15% 0 15%;
+    padding: 0 15% 0 20%;
 }
 
 .CreateCourseMain {
@@ -203,8 +203,7 @@
 .AuthorsMain {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
     border: 2px solid #000000;
     margin: 10px;
     padding: 40px 0 0 0;
