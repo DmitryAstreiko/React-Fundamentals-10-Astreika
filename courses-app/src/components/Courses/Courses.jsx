@@ -3,23 +3,42 @@ import '../../App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import CourseCard from './components/CourseCard/CourseCard';
 import Button from "../../common/Button/Button";
-import getCourseDuration from '../../helpers/getCourseDuration';
+import GetCourseDuration from '../../helpers/getCourseDuration';
+import FormatCreationDate from '../../helpers/formatCreationDate';
 
 function Courses(props) {
+    const [itemCources, setItemCources] = useState(props.items);
+    const [itemAuthors, setitemAuthors] = useState(props.itemAuthors);
     return (
         <div className="CoursesMain">
             <div className="CoursesSearchAddCourse">
-                <SearchBar />
+                <SearchBar />S
                 <div>
                     <Button buttonText="Add new course" />
                 </div>
             </div>
-            {props.items.map((item, index) =>
-                <CourseCard id={item.id} title={item.title} description={item.description} authors={item.authors} duration={getCourseDuration(item.duration)} created={item.creationDate} />
+            {itemCources.map((item, index) =>
+                <CourseCard id={item.id} title={item.title} description={item.description} authors={getAuthorsByIds(item.authors)} duration={GetCourseDuration(item.duration)} created={FormatCreationDate(item.creationDate)} />
             )}
                         
         </div>
     )
+
+    function getAuthorsByIds(arrayAuthors) {
+        debugger;
+
+        for (var i = 0; arrayAuthors.length - 1; i++) {
+            
+            var www = arrayAuthors[i];
+            //var sss = itemAuthors.find(el => el.id == www);
+            //console.log('sss = ' + sss)
+        }
+
+    
+
+
+ 
+    }
 }
 
 export default Courses;

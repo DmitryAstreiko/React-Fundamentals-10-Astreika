@@ -15,7 +15,7 @@ function App() {
                 <CreateCourse itemAuthors={getAuthors()} />
             ) : (
 
-                <Courses items={getItems()} />
+                <Courses items={getICourcestems()} itemAuthors={getAuthors()} />
             )
             }
         </div>
@@ -25,7 +25,7 @@ function App() {
     return mockedAuthorsList;
     }
 
-    function getItems() {
+    function getICourcestems() {
         return mockedCoursesList;
     }
 }

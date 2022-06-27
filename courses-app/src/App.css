@@ -60,7 +60,7 @@
     border: 2px solid #2bd61b;
     display: flex;
     margin: 10px;
-    height: 150px;
+ 
 }
 
 .CourseCardTitleDesc {
@@ -78,12 +78,16 @@
     width: 30%;
     padding: 10px;
 }
+.CourseCardOtherOne {
+    padding: 5px 0 5px 0;
+}
 
 .CourseCardName {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30px;
+    padding: 10px 0 0 0;
 }
 
 .CourseCardTitle {

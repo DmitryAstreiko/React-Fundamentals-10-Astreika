@@ -12,13 +12,13 @@ function CourseCard(props) {
                 <div>{props.description}</div>
             </div>
             <div className="CourseCardOther">
-                <div>
+                <div className="CourseCardOtherOne">
                     <b>Authors: </b>{ props.authors }
                 </div>
-                <div>
+                <div className="CourseCardOtherOne">
                     <b>Duration: </b>{ props.duration }
                 </div>
-                <div>
+                <div className="CourseCardOtherOne">
                     <b>Created: </b>{ props.created }
                 </div>
                 <div className="CourseCardName">

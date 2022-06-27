@@ -1,4 +1,4 @@
-function getCourseDuration(string) {
+function GetCourseDuration(string) {
     var inputNum = parseInt(string);
 
     var hours = Math.floor(inputNum / 60);
@@ -14,4 +14,4 @@ function getCourseDuration(string) {
     return aboutHour + ':' + aboutMinutes + aboutEndHour;
 }
 
-export default getCourseDuration;
+export default GetCourseDuration;
