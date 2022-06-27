@@ -8,7 +8,7 @@ function Duration(props) {
 			<label className='CreateCourseLabelsParagraph'>Duration</label>
 			<label className='CreateCourseLabels'>Duration</label>
 			<Input placeholderText='Enter duration minutes...' />
-			<label>
+			<label className='CreateCourseDuration'>
 				Duration: <b>00:00</b> hours
 			</label>
 		</div>

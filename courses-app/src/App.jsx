@@ -7,23 +7,35 @@ import { mockedAuthorsList, mockedCoursesList } from './constants';
 
 function App() {
 	const [isShowCreateCourse, setIsShowCreateCourse] = useState(false);
-
+	const [Authors, setAuthors] = useState(getAuthors());
+	const [CourcesItem, setCourses] = useState(getCources());
 	return (
 		<div>
 			<Header />
 			{isShowCreateCourse ? (
-				<CreateCourse itemAuthors={getAuthors()} />
+				<CreateCourse
+					itemAuthors={getAuthors()}
+					changeIsShowCreateCourse={changeIsShowCreateCourse}
+				/>
 			) : (
-				<Courses items={getICourcestems()} itemAuthors={getAuthors()} />
+				<Courses
+					items={CourcesItem}
+					itemAuthors={Authors}
+					changeIsShowCreateCourse={changeIsShowCreateCourse}
+				/>
 			)}
 		</div>
 	);
+
+	function changeIsShowCreateCourse() {
+		setIsShowCreateCourse(!isShowCreateCourse);
+	}
 
 	function getAuthors() {
 		return mockedAuthorsList;
 	}
 
-	function getICourcestems() {
+	function getCources() {
 		return mockedCoursesList;
 	}
 }

@@ -7,14 +7,18 @@ import GetCourseDuration from '../../helpers/getCourseDuration';
 import FormatCreationDate from '../../helpers/formatCreationDate';
 
 function Courses(props) {
-	const [itemCources] = useState(props.items);
+	const [itemCources, setItemCources] = useState(props.items);
 	const [itemAuthors] = useState(props.itemAuthors);
+	const [forSearch, setForSearch] = useState(null);
 	return (
 		<div className='CoursesMain'>
 			<div className='CoursesSearchAddCourse'>
-				<SearchBar />
+				<SearchBar forSearch={forSearch} />
 				<div>
-					<Button buttonText='Add new course' />
+					<Button
+						buttonText='Add new course'
+						onButtonPress={changeShowCreateCourse}
+					/>
 				</div>
 			</div>
 			{itemCources.map((item, index) => (
@@ -29,6 +33,14 @@ function Courses(props) {
 			))}
 		</div>
 	);
+
+	function changeShowCreateCourse() {
+		props.changeIsShowCreateCourse();
+	}
+
+	function getInputSymbol(symbols) {
+		setItemCources(props.items);
+	}
 
 	function getAuthorsByIds(arrayAuthors) {
 		var resAuthors = null;

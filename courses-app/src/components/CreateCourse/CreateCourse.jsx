@@ -11,7 +11,10 @@ function CreateCourse(props) {
 			<div className='CreateCourseTitle'>
 				<Input placeholderText='Enter title...' />
 				<div className='CreateCourseButtons'>
-					<Button buttonText='Cancel adding' />
+					<Button
+						buttonText='Cancel adding'
+						onButtonPress={changeShowCreateCourse}
+					/>
 					<Button buttonText='Create course' />
 				</div>
 			</div>
@@ -23,6 +26,10 @@ function CreateCourse(props) {
 			<Authors itemsAuthors={props.itemAuthors} />
 		</div>
 	);
+
+	function changeShowCreateCourse() {
+		props.changeIsShowCreateCourse();
+	}
 }
 
 export default CreateCourse;
