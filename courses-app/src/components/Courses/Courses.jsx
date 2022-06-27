@@ -12,7 +12,7 @@ function Courses(props) {
 	return (
 		<div className='CoursesMain'>
 			<div className='CoursesSearchAddCourse'>
-				<SearchBar />S
+				<SearchBar />
 				<div>
 					<Button buttonText='Add new course' />
 				</div>
@@ -31,18 +31,20 @@ function Courses(props) {
 	);
 
 	function getAuthorsByIds(arrayAuthors) {
-		debugger;
-
-		for (let author of arrayAuthors) {
-			console.log(author);
+		var resAuthors = null;
+		for (let authorId of arrayAuthors) {
+			for (let authorItem of itemAuthors) {
+				if (authorItem.id === authorId) {
+					if (resAuthors === null) {
+						resAuthors = authorItem.name;
+					} else {
+						resAuthors = resAuthors.concat(', ').concat(authorItem.name);
+					}
+				}
+			}
 		}
 
-		/*for (var i = 0; arrayAuthors.length - 1; i++) {
-            
-            var www = arrayAuthors[i];
-            var sss = itemAuthors.find(el => el.id == www);
-            console.log('sss = ' + sss)
-        }*/
+		return resAuthors;
 	}
 }
 
