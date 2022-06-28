@@ -5,23 +5,29 @@ import Duration from '../Duration/Duration';
 import AuthorItem from '../AuthorItem/AuthorItem';
 
 function Authors(props) {
-	const [itemsAuthors, setItems] = useState(props.itemsAuthors);
-	console.log('itemsAuthors' + itemsAuthors);
+	const [Authors, setAuthors] = useState(null);
 	return (
 		<div className='AuthorsMain'>
 			<div className='AuthorsAddAndDuration'>
-				<AddAuthor itemsAuthors={itemsAuthors} />
+				<AddAuthor
+					itemsAuthors={props.itemsAuthors}
+					onAddAuthors={onAddAuthor}
+				/>
 				<Duration />
 			</div>
 			<div className='AuthorsListAndDelete'>
 				<label className='CreateCourseLabelsParagraph'>Authors</label>
-				{itemsAuthors?.map((item) => (
+				{props.itemsAuthors?.map((item) => (
 					<AuthorItem AuthorName={item.name} ButtonName='Add author' />
 				))}
 				<label className='CreateCourseLabelsParagraph'>Course authors</label>
 			</div>
 		</div>
 	);
+
+	function onAddAuthor(value) {
+		props.AddAuthor(value);
+	}
 }
 
 export default Authors;

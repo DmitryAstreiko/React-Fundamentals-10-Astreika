@@ -15,12 +15,10 @@ function SearchBar(props) {
 	);
 
 	function onInputText(text) {
-		console.log('onInputText -- ' + text);
 		setInputText(text);
 	}
 
 	function onSearch() {
-		console.log('onSearch');
 		props.onSearchCourse(inputText);
 	}
 }

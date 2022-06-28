@@ -7,8 +7,6 @@ import GetCourseDuration from '../../helpers/getCourseDuration';
 import FormatCreationDate from '../../helpers/formatCreationDate';
 
 function Courses(props) {
-	const [itemCourses, setItemCourses] = useState(props.items);
-	console.log('Courses = ' + itemCourses);
 	const [itemAuthors] = useState(props.itemAuthors);
 	return (
 		<div className='CoursesMain'>
@@ -21,7 +19,7 @@ function Courses(props) {
 					/>
 				</div>
 			</div>
-			{itemCourses.map((item, index) => (
+			{props.items.map((item, index) => (
 				<CourseCard
 					id={item.id}
 					title={item.title}
@@ -39,7 +37,6 @@ function Courses(props) {
 	}
 
 	function onSearchCourse(text) {
-		console.log('onSearchCourse = ' + text);
 		props.onSearchCourses(text);
 	}
 
@@ -56,7 +53,6 @@ function Courses(props) {
 				}
 			}
 		}
-
 		return resAuthors;
 	}
 }

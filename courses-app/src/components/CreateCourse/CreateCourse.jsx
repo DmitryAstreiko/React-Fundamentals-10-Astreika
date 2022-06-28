@@ -5,7 +5,6 @@ import Authors from './components/Authors/Authors';
 import Input from '../../common/Input/Inpit';
 
 function CreateCourse(props) {
-	console.log('CreateCourse = ' + props.itemAuthors);
 	return (
 		<div className='CreateCourseMain'>
 			<label className='CreateCourseLabels'>Title</label>
@@ -24,9 +23,13 @@ function CreateCourse(props) {
 				className='CreateCourseTextArea'
 				placeholder='Enter description'
 			></textarea>
-			<Authors itemsAuthors={props.itemAuthors} />
+			<Authors itemsAuthors={props.itemAuthors} AddAuthor={addAuthors} />
 		</div>
 	);
+
+	function addAuthors(value) {
+		props.addNewAuthors(value);
+	}
 
 	function changeShowCreateCourse() {
 		props.changeIsShowCreateCourse();
