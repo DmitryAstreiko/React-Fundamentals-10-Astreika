@@ -6,9 +6,18 @@ function AuthorItem(props) {
 	return (
 		<div className='AuthorItemMain'>
 			<label>{props.AuthorName}</label>
-			<Button buttonText={props.ButtonName} />
+			<Button
+				id={props.id}
+				buttonText={props.ButtonName}
+				onButtonPress={onPress}
+			/>
 		</div>
 	);
+
+	function onPress(id) {
+		console.log('onPress ' + id);
+		props.onButtonPress(id);
+	}
 }
 
 export default AuthorItem;
