@@ -7,7 +7,9 @@ function AddAuthor(props) {
 	const [nameAuthor, setnameAuthor] = useState(null);
 	return (
 		<div className='AddAuthorMain'>
-			<label className='CreateCourseLabelsParagraph'>Add author</label>
+			<label className='CreateCourseLabelsParagraph'>
+				<b>Add author</b>
+			</label>
 			<label className='CreateCourseLabels'>Author name</label>
 			<Input placeholderText='Enter author name...' onChange={onInputText} />
 			<div style={{ textAlign: 'center' }}>

@@ -7,7 +7,9 @@ function Duration() {
 	const [duration, setDuration] = useState('00:00 hour');
 	return (
 		<div className='DurationMain'>
-			<label className='CreateCourseLabelsParagraph'>Duration</label>
+			<label className='CreateCourseLabelsParagraph'>
+				<b>Duration</b>
+			</label>
 			<label className='CreateCourseLabels'>Duration</label>
 			<Input
 				placeholderText='Enter duration minutes...'

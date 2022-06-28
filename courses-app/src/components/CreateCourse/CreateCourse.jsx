@@ -20,6 +20,7 @@ function CreateCourse(props) {
 			</div>
 			<label className='CreateCourseLabels'>Description</label>
 			<textarea
+				minLength='2'
 				className='CreateCourseTextArea'
 				placeholder='Enter description'
 			></textarea>

@@ -24,7 +24,9 @@ function Authors(props) {
 				<Duration />
 			</div>
 			<div className='AuthorsListAndDelete'>
-				<label className='CreateCourseLabelsParagraph'>Authors</label>
+				<label className='CreateCourseLabelsParagraph'>
+					<b>Authors</b>
+				</label>
 				{abilityAuthors?.map((item) => (
 					<AuthorItem
 						id={item.id}
@@ -33,25 +35,74 @@ function Authors(props) {
 						onButtonPress={onAddAuthorToList}
 					/>
 				))}
-				<label className='CreateCourseLabelsParagraph'>Course authors</label>
-				{selectedAuthors?.map((item) => (
-					<AuthorItem AuthorName={item.name} ButtonName='Add author' />
-				))}
+				<label className='CreateCourseLabelsParagraph'>
+					<b>Course authors</b>
+				</label>
+				{selectedAuthors.length > 0 ? (
+					selectedAuthors?.map((item) => (
+						<AuthorItem
+							id={item.id}
+							AuthorName={item.name}
+							ButtonName='Delete author'
+							onButtonPress={onDelAuthorToList}
+						/>
+					))
+				) : (
+					<label style={{ textAlign: 'center' }}>
+						<b>Author list is empty</b>
+					</label>
+				)}
 			</div>
 		</div>
 	);
 
-	function onAddAuthorToList(id) {
+	function onDelAuthorToList(id) {
+		let tempAbilityAuthors = [];
+		tempAbilityAuthors.push(...abilityAuthors);
 		let tempSelectedAuthors = [];
+		tempSelectedAuthors.push(...selectedAuthors);
+
+		var indexSelectedId = tempSelectedAuthors.findIndex(
+			(elem) => elem.id === id
+		);
+
+		if (indexSelectedId > -1) {
+			tempAbilityAuthors.push({
+				id: tempSelectedAuthors[indexSelectedId].id,
+				name: tempSelectedAuthors[indexSelectedId].name,
+			});
+
+			setAbilityAuthors(tempAbilityAuthors);
+
+			tempSelectedAuthors.splice(indexSelectedId, 1);
+
+			setSelectedAuthors(tempSelectedAuthors);
+		}
+	}
+
+	function onAddAuthorToList(id) {
+		let tempAbilityAuthors = [];
+		tempAbilityAuthors.push(...abilityAuthors);
+		let tempSelectedAuthors = [];
+		tempSelectedAuthors.push(...selectedAuthors);
 		if (allAuthors) {
 			allAuthors?.forEach((element) => {
 				var foundId = element.id.toLowerCase().indexOf(id, 0);
 				if (foundId > -1) {
 					tempSelectedAuthors.push(element);
+
+					var indexAbilityId = tempAbilityAuthors.findIndex(
+						(elem) => elem.id === id
+					);
+
+					if (indexAbilityId > -1) {
+						tempAbilityAuthors.splice(indexAbilityId, 1);
+
+						setAbilityAuthors(tempAbilityAuthors);
+					}
 				}
 			});
 		}
-
 		setSelectedAuthors(tempSelectedAuthors);
 	}
 
