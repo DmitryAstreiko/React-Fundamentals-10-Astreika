@@ -6,14 +6,14 @@ function Input(props) {
 	return (
 		<div className='InputMain'>
 			<input
-				id='search'
+				id='searchIput'
 				className='Inputs'
 				value={inputValue}
 				placeholder={props.placeholderText}
 				//onChange={(event) => setInputValue(event.target.value)}
 				onChange={(event) => onHandleClick(event.target.value)}
 			/>
-			<label for='search'>{props.labelText}</label>
+			<label for='searchIput'>{props.labelText}</label>
 		</div>
 	);
 

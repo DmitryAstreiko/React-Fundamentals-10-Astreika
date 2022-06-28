@@ -21,14 +21,15 @@ function Authors(props) {
 		<div className='AuthorsMain'>
 			<div className='AuthorsAddAndDuration'>
 				<AddAuthor itemsAuthors={allAuthors} onAddAuthors={onAddAuthor} />
-				<Duration />
+				<Duration onDuration={onDuration} />
 			</div>
 			<div className='AuthorsListAndDelete'>
 				<label className='CreateCourseLabelsParagraph'>
 					<b>Authors</b>
 				</label>
-				{abilityAuthors?.map((item) => (
+				{abilityAuthors?.map((item, index) => (
 					<AuthorItem
+						key={index}
 						id={item.id}
 						AuthorName={item.name}
 						ButtonName='Add author'
@@ -39,8 +40,9 @@ function Authors(props) {
 					<b>Course authors</b>
 				</label>
 				{selectedAuthors.length > 0 ? (
-					selectedAuthors?.map((item) => (
+					selectedAuthors?.map((item, index) => (
 						<AuthorItem
+							key={index}
 							id={item.id}
 							AuthorName={item.name}
 							ButtonName='Delete author'
@@ -55,6 +57,10 @@ function Authors(props) {
 			</div>
 		</div>
 	);
+
+	function onDuration(text) {
+		props.onDurationChange(text);
+	}
 
 	function onDelAuthorToList(id) {
 		let tempAbilityAuthors = [];
@@ -104,6 +110,8 @@ function Authors(props) {
 			});
 		}
 		setSelectedAuthors(tempSelectedAuthors);
+
+		props.onAuthorsSelected(tempSelectedAuthors);
 	}
 
 	function onAddAuthor(value) {

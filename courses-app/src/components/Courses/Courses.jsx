@@ -21,6 +21,7 @@ function Courses(props) {
 			</div>
 			{props.items.map((item, index) => (
 				<CourseCard
+					key={index}
 					id={item.id}
 					title={item.title}
 					description={item.description}

@@ -3,7 +3,7 @@ import '../../../../App.css';
 import Input from '../../../../common/Input/Inpit';
 import GetCourseDuration from '../../../../helpers/getCourseDuration';
 
-function Duration() {
+function Duration(props) {
 	const [duration, setDuration] = useState('00:00 hour');
 	return (
 		<div className='DurationMain'>
@@ -22,11 +22,14 @@ function Duration() {
 	function onInputText(text) {
 		//const isInteger = /^[0-9]+$/;
 		//if (text === '' || isInteger.test(text)) {
-		setDuration(GetCourseDuration(text));
 		//}
 
 		if (!text) {
 			setDuration('00:00 hour');
+			props.onDuration('0');
+		} else {
+			setDuration(GetCourseDuration(text));
+			props.onDuration(text);
 		}
 	}
 }

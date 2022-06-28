@@ -10,6 +10,7 @@ function App() {
 	const [isShowCreateCourse, setIsShowCreateCourse] = useState(false);
 	const [authors, setAuthors] = useState(getAuthors());
 	const [coursesItem, setCoursesItem] = useState(getCources());
+	const [allCoursesItem, setAllCoursesItem] = useState(getCources());
 	return (
 		<div>
 			<Header />
@@ -18,6 +19,7 @@ function App() {
 					itemAuthors={authors}
 					changeIsShowCreateCourse={changeIsShowCreateCourse}
 					addNewAuthors={addNewAuthors}
+					onCreateNewCourse={onCreateNewCourse}
 				/>
 			) : (
 				<Courses
@@ -30,6 +32,15 @@ function App() {
 		</div>
 	);
 
+	function onCreateNewCourse(newCourse) {
+		var tempArray = [];
+		tempArray.push(...coursesItem);
+		tempArray.push(newCourse[0]);
+		setCoursesItem(tempArray);
+		setAllCoursesItem(tempArray);
+		setIsShowCreateCourse(!isShowCreateCourse);
+	}
+
 	function addNewAuthors(text) {
 		var tempAuthors = [];
 		tempAuthors.push(...authors);
@@ -39,20 +50,24 @@ function App() {
 
 	function onSearchCourses(text) {
 		var resArray = [];
-		const mockedCourses = getCources();
-		if (mockedCourses) {
-			mockedCourses?.forEach((element) => {
-				var foundTitle = element.title.toLowerCase().indexOf(text, 0);
-				var foundId = element.id.toLowerCase().indexOf(text, 0);
-				if (foundTitle > -1 || foundId > -1) {
-					resArray.push(element);
-				}
-			});
-		}
+		//var mockedCourses = coursesItem;
 
-		if (resArray.length > 0) {
-			setCoursesItem(resArray);
-			setCoursesItem(mockedCourses);
+		if (text === '') {
+			setCoursesItem(allCoursesItem);
+		} else {
+			if (coursesItem) {
+				coursesItem?.forEach((element) => {
+					var foundTitle = element.title.toLowerCase().indexOf(text, 0);
+					var foundId = element.id.toLowerCase().indexOf(text, 0);
+					if (foundTitle > -1 || foundId > -1) {
+						resArray.push(element);
+					}
+				});
+			}
+
+			if (resArray.length > 0) {
+				setCoursesItem(resArray);
+			}
 		}
 	}
 

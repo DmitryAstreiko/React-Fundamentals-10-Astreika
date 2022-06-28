@@ -15,7 +15,6 @@ function AuthorItem(props) {
 	);
 
 	function onPress(id) {
-		console.log('onPress ' + id);
 		props.onButtonPress(id);
 	}
 }
